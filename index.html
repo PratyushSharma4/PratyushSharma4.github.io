@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratyush Sharma - Personal Website</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style for the layout */
+        .about-container {
+            display: flex;
+            align-items: center;
+            /* Vertically center the items */
+            margin: 20px 0;
+            /* Add some margin */
+        }
+
+        .profile-photo {
+            width: 150px;
+            /* Adjust size as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 20px;
+            /* Space between image and text */
+        }
+
+        .bio {
+            max-width: 600px;
+            /* Optional: limit text width */
+        }
+    </style>
 </head>
 
 <body>
@@ -25,25 +49,26 @@
     <main>
         <section id="index">
             <h2>Welcome to My Personal Website</h2>
-            <div class="image1.jpg"></div>
-            <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT Delhi. I enjoy solving maths puzzles. I am interested in research. I love reading philosophical books. This website is a glimpse into my academic life and blog.</p>
+            <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT Delhi.
+                I enjoy solving maths puzzles. I am interested in research. I love reading philosophical books. This
+                website is a glimpse into my academic life and blog.</p>
         </section>
 
-    <main>
-    <section id="about">
-        <img src="profile.jpg" alt="Pratyush Sharma" class="profile-photo">
-        <div class="bio">
-            <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT
-                Delhi. I enjoy solving maths puzzles. I am interested in research. I love reading philosophical
-                books. This website is a glimpse into my academic life and blog.</p>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:pratyushkbs@gmail.com">pratyushkbs@gmail.com</a></p>
-        <p>Phone: +91-9820562262</p>
-    </section>
+        <section id="about" class="about-container">
+            <img src="profile.jpg" alt="Pratyush Sharma" class="profile-photo">
+            <div class="bio">
+                <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT
+                    Delhi. I enjoy solving maths puzzles. I am interested in research. I love reading philosophical
+                    books. This website is a glimpse into my academic life and blog.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:pratyushkbs@gmail.com">pratyushkbs@gmail.com</a></p>
+            <p>Phone: +91-9820562262</p>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Pratyush Sharma. All rights reserved.</p>
@@ -53,13 +78,3 @@
 </body>
 
 </html>
-
-    <main>
-        <section id="about">
-            <img src="profile.jpg" alt="Pratyush Sharma" class="profile-photo">
-            <div class="bio">
-                <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT
-                    Delhi. I enjoy solving maths puzzles. I am interested in research. I love reading philosophical
-                    books. This website is a glimpse into my academic life and blog.</p>
-            </div>
-        </section>
