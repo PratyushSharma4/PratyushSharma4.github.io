@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer - The Flaw in the Casino Game Betting Strategy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="blog">
+            <h2>Blog</h2>
+            <article>
+                <h3>The Flaw in the Casino Game Betting Strategy</h3>
+                <div class="question">
+                    <strong>Question:</strong> What is the flaw in the casino game betting strategy of doubling your bet
+                    after every loss?
+                </div>
+                <div class="answer">
+                    <strong>Answer:</strong> The flaw lies in applying the linearity of expectation without recognizing
+                    that the betting strategy leads to an infinite series of bets that do not converge. While each game
+                    has a fair expectation of $0, the doubling strategy can lead to a situation where losses accumulate
+                    exponentially, potentially leading to financial ruin before a win occurs.
+                </div>
+                <p>
+                    Imagine a simple casino game with exactly a 50% chance of winning and a 50% chance of losing. The
+                    game sounds fair enough, but what if we decide to apply a particular betting strategy? Suppose I bet
+                    $1 and keep doubling my bet each time I lose until I eventually win. Assuming I have unlimited
+                    money, I would theoretically gain $1 as soon as I win the game. Since each game has an expectation
+                    of $0 due to the 50-50 win-loss split, it might seem like I should still walk away with a profit
+                    regardless of the expectation value being zero. So, where is the flaw in this reasoning?
+                </p>
+
+                <p>
+                    The mistake lies in applying the <em>linearity of expectation</em> to this situation without the
+                    necessary conditions. Linearity of expectation works when we have either a finite set of random
+                    variables or an infinite series of random variables that converge absolutely. In this casino game
+                    setup, however, we're dealing with an <strong>infinite series of bets</strong> that do not converge
+                    — precisely because we are doubling our bet each time we lose.
+                </p>
+
+                <p>
+                    Here's what happens: if I keep losing and doubling my bet indefinitely, the sum of my bets grows
+                    exponentially. Since I assume unlimited money, I am essentially betting an infinite amount over
+                    time, which fails the absolute convergence criterion needed for linearity of expectation. Without
+                    convergence, expectation cannot be applied as assumed, which invalidates the conclusion that I will
+                    walk away with profit.
+                </p>
+
+                <p>
+                    In reality, resources are always limited, and even with very large funds, the probability of a long
+                    string of losses remains. Such a losing streak could lead to financial ruin before a win occurs.
+                    Therefore, while each individual game has a fair expectation of $0, trying to apply this expectation
+                    over an infinite, non-converging series of bets creates a flaw in the logic and an unrealistic view
+                    of “guaranteed profit.”
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -6,53 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratyush Sharma - Personal Website</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Style for the layout */
-        .intro-container {
-            text-align: center;
-            margin-top: 20px;
-        }
+<style>
+    /* Style for the layout */
+    .intro-container {
+        text-align: center;
+        margin-top: 20px;
+    }
 
+    .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    /* Reduced the size of the profile photo by 50% */
+    .profile-photo {
+        width: 25%;
+        height: auto;
+    }
+
+    .bio {
+        font-size: 1.2em;
+        max-width: 50%;
+        padding-left: 20px;
+        line-height: 1.6;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
         .about-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
+            flex-direction: column;
+            text-align: center;
         }
 
-        .profile-photo {
-            width: 50%;
-            height: auto;
+        .profile-photo,
+        .bio {
+            max-width: 100%;
         }
 
         .bio {
-            font-size: 1.2em;
-            max-width: 50%;
-            padding-left: 20px;
-            line-height: 1.6;
+            padding-left: 0;
         }
+    }
+</style>
 
-        h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .about-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-photo,
-            .bio {
-                max-width: 100%;
-            }
-
-            .bio {
-                padding-left: 0;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -70,18 +72,16 @@
     </nav>
 
     <main>
-        <section class="intro-container">
-            <h2>Welcome to My Personal Website</h2>
-        </section>
-
-        <section id="about" class="about-container">
-            <img src="profile.jpg" alt="Pratyush Sharma" class="profile-photo">
-            <div class="bio">
-                <p>Hi! I'm Pratyush Sharma. I am currently pursuing a Dual degree in Mathematics and Computing at IIT
-                    Delhi. I enjoy solving maths puzzles. I am interested in research. I love reading philosophical
-                    books. This website is a glimpse into my academic life and blog.</p>
-            </div>
-        </section>
+<section class="intro-container">
+    <h2>Welcome to My Personal Website</h2>
+    <p>Hello! I'm Pratyush Sharma, a third-year student in the Mathematics and Computing program at IIT Delhi,
+        originally from Mumbai. My passion lies in mathematics and solving complex puzzles, which constantly challenge
+        me to think creatively and analytically.</p>
+    <p>This website serves as a glimpse into my life, covering my academic journey, personal projects, and insights from
+        my studies. I aim to share my experiences, achievements, and perspectives on topics that fascinate me. Feel free
+        to connect with me on <a href="https://www.linkedin.com/in/pratyush-sharma-571951264"
+            target="_blank">LinkedIn</a> for any academic discussions, collaborations, or just to say hello!</p>
+</section>
 
         <section id="contact">
             <h2>Contact</h2>
