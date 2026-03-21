@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pratyush Sharma is a Mathematics and Computing student at IIT Delhi exploring algorithms, cryptography, problem solving, and mathematical writing.">
+    <title>Pratyush Sharma | Mathematics, Research, and Problem Solving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="home">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="writing.html">Writing</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Homepage is now a lighter landing page, with the deeper content moved to dedicated pages. -->
+        <section class="landing-hero reveal">
+            <div class="landing-grid">
+                <div class="landing-hero__copy">
+                    <h1>Finding the hidden elegance behind complex problems.</h1>
+                    <p class="hero-lede">
+                        I am Pratyush Sharma, a Mathematics and Computing student at IIT Delhi. I enjoy hard problems,
+                        clean explanations, and research that sharpens intuition. This site is a collection of my academic and non-academic pursuits, including research projects, mathematical writing, and the games I play for fun.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button--primary" href="about.html">Start with about me</a>
+                    </div>
+                </div>
+                <div class="portrait-shell">
+                    <img src="1.jpg" alt="Pratyush Sharma" class="portrait-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- These large cards are the main entry points into the rest of the site. -->
+        <section class="content-section reveal">
+            <div class="section-heading">
+                <p class="eyebrow">Explore the site</p>
+                <h2>Choose a section and step into it.</h2>
+            </div>
+
+            <div class="portal-grid">
+                <a class="portal-card portal-card--about" href="about.html" data-tilt>
+                    <h3>About Me</h3>
+                    <p>A concise snapshot of my current life, spanning academic pursuits and interests beyond academics.</p>
+                </a>
+
+                <a class="portal-card portal-card--achievements" href="achievements.html" data-tilt>
+                    <h3>Achievements</h3>
+                    <p>A collection of some of my scholastic and olympiad accomplishments. Does not include many of the smaller fun competitions.</p>
+                </a>
+
+                <a class="portal-card portal-card--research" href="research.html" data-tilt>
+                    <h3>Research</h3>
+                    <p>Publications, current research projects, and open problems I am working (procastinating) on.</p>
+                </a>
+
+                <a class="portal-card portal-card--writing" href="writing.html" data-tilt>
+                    <h3>Writing</h3>
+                    <p>Short mathematical notes about problems which I find elegant or interesting.</p>
+                </a>
+
+                <a class="portal-card portal-card--hobbies" href="hobbies.html" data-tilt>
+                    <h3>Hobbies</h3>
+                    <p>A fun space for the games I play and how good (or bad) I am at them.</p>
+                </a>
+
+                <a class="portal-card portal-card--contact" href="contact.html" data-tilt>
+                    <h3>Contact</h3>
+                    <p>All the methods to reach me for research conversations, collaborations, or discussion of interesting problems.</p>
+                </a>
+
+
+            </div>
+        </section>
+
+        <section class="content-section reveal">
+            <div class="split-panel">
+                <div class="split-panel__copy">
+                    <p class="eyebrow">At a glance</p>
+                    <p>
+                        I am especially interested in problems where the right abstraction changes what seems
+                        computationally possible. At the same time, I enjoy writing because explaining a subtle idea
+                        well is its own kind of problem solving.
+                    </p>
+                </div>
+
+                <div class="mini-stat-grid">
+                    <article class="mini-stat-card">
+                        <span class="mini-stat-card__value" data-counter="1">1</span>
+                        <span class="mini-stat-card__label">accepted paper</span>
+                    </article>
+                    <article class="mini-stat-card">
+                        <span class="mini-stat-card__value" data-counter="2">2</span>
+                        <span class="mini-stat-card__label">blogs</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Pratyush Sharma</p>
+        <p>Mathematics and Computing at IIT Delhi</p>
+        <p><a href="mailto:pratyushkbs@gmail.com">pratyushkbs@gmail.com</a></p>
+    </footer>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

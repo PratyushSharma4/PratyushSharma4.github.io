@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Short mathematical and logical notes by Pratyush Sharma.">
+    <title>Writing | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="writing">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="writing.html" aria-current="page">Writing</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="subpage-main">
+        <section class="page-hero reveal">
+            <p class="eyebrow">Writing</p>
+            <p class="page-hero__lede">
+                These pieces are compact on purpose. Otherwise what's the fun in writing them?  
+            </p>
+        </section>
+
+        <section class="content-section reveal">
+            <div class="card-grid card-grid--two">
+                <article class="essay-card essay-card--large">
+                    <p class="essay-card__meta">Probability | 4 minute read</p>
+                    <h2>The flaw in the casino game betting strategy</h2>
+                    <p>
+                        The doubling strategy feels like a guaranteed profit machine until you ask which assumptions are
+                        silently doing the work. This note explains where the argument breaks and why expectation does not rescue it.
+                    </p>
+                    <a class="button button--primary" href="article1.html">Read article</a>
+                </article>
+
+                <article class="essay-card essay-card--large">
+                    <p class="essay-card__meta">Logic | 5 minute read</p>
+                    <h2>When will the prisoner die?</h2>
+                    <p>
+                        A classic paradox about prediction, knowledge, and self-undermining reasoning. The apparent
+                        backward induction feels airtight until the very first step is examined carefully.
+                    </p>
+                    <a class="button button--primary" href="article2.html">Read article</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section reveal">
+            <div class="section-heading">
+                <p class="eyebrow">Why I write</p>
+                <h2>Because clear explanations are a form of problem solving too.</h2>
+            </div>
+
+            <div class="question-grid">
+                <article class="question-card">
+                    <h3>Make the hidden assumption visible</h3>
+                    <p>I believe the most useful explanations are often the ones that identify the exact step where intuition
+                        quietly overreaches.</p>
+                </article>
+
+                <article class="question-card">
+                    <h3>Compress without oversimplifying</h3>
+                    <p>I like notes that stay short and sweet while still respecting the real structure of the argument it presents.</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

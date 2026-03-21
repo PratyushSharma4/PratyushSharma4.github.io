@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the surprise hanging paradox and the flaw in the prisoner's reasoning.">
+    <title>When Will the Prisoner Die? | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="article">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="writing.html" aria-current="page">Writing</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero reveal">
+
+            <p class="eyebrow">Logic and paradox</p>
+            <h1>When will the prisoner die?</h1>
+            <p class="article-intro">
+                The surprise hanging paradox is memorable because the prisoner's reasoning looks methodical, even
+                airtight, right up to the moment it collapses. The interesting part is not merely that he is wrong,
+                but why backward elimination feels so persuasive in the first place.
+            </p>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar reveal">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The prisoner's reasoning tries to use the judge's prediction to discredit the very possibility
+                        that the prediction could come true. That self-undermining step is where the argument loses its
+                        footing.</p>
+                </div>
+            </aside>
+
+            <article class="article-card reveal">
+                <div class="article-block">
+                    <h2>The question</h2>
+                    <p>
+                        A judge tells a condemned prisoner that he will be executed at noon on one weekday of the
+                        following week, and that the execution will be a surprise. The prisoner reasons that it cannot
+                        happen on Friday, because if he survives until Thursday night then Friday would be forced and
+                        therefore unsurprising. Eliminating Friday, he then eliminates Thursday, then Wednesday, and so
+                        on, concluding that the execution cannot happen at all. Yet when the executioner arrives on
+                        Wednesday, he is genuinely surprised. Where did the logic break?
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>Why the backward argument feels convincing</h2>
+                    <p>
+                        Each step seems to use a reasonable idea: if only one day remains, then the prisoner should be
+                        able to predict the execution. That appears to violate the judge's promise of surprise, so the
+                        last day is ruled out. From there, the prisoner tries to repeat the same reasoning one day
+                        earlier, and the chain continues backward.
+                    </p>
+                    <p>
+                        The trouble is that the argument assumes the prisoner can continue treating the judge's
+                        prediction as reliable even after his own reasoning would imply that the prediction is
+                        impossible. In other words, he uses the prediction as a premise inside an argument whose
+                        conclusion is that the prediction cannot be fulfilled.
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>The flaw</h2>
+                    <p>
+                        The very first elimination already depends on a delicate notion of what counts as "knowing" the
+                        date in advance. If the prisoner were to deduce on Thursday night that the execution must happen
+                        on Friday, then he would simultaneously be living in a world where his earlier blanket
+                        conclusion, namely that no execution can occur, has already failed. The reasoning is not stable
+                        under its own consequences.
+                    </p>
+                    <p>
+                        Once the chain starts undermining the reliability of the prediction it is using, the later steps
+                        lose their force. The judge can still speak truthfully because the prisoner's attempted proof of
+                        impossibility does not translate into genuine foreknowledge of the actual day.
+                    </p>
+                </div>
+
+                <div class="article-block article-block--accent">
+                    <h2>Takeaway</h2>
+                    <p>
+                        The prisoner's logic fails because it treats surprise, prediction, and self-reference as if they
+                        were ordinary facts that can be iterated backward without instability. They cannot.
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Research interests, publications, and ongoing projects by Pratyush Sharma.">
+    <title>Research | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="research" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html" aria-current="page">Research</a>
+            <a href="writing.html">Writing</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="subpage-main">
+        <section class="page-hero page-hero--compact reveal">
+            <p class="eyebrow">Research</p>
+            <p class="page-hero__lede">
+                My research interests sit at the intersection of algorithms, complexity, and mathematical computation. I am especially drawn to problems where the right abstraction simplifies a seemingly difficult question.
+            </p>
+        </section>
+
+        <section class="content-section reveal">
+            <article class="publication-card">
+                <p class="publication-card__meta">Accepted at SOSA 2025</p>
+                <h2>3SUM in Preprocessed Universes: Faster and Simpler</h2>
+                <p class="publication-card__authors">Shashwat Kasliwal, Adam Polak, Pratyush Sharma</p>
+                <p>
+                    This work studies a variant of 3SUM in which preprocessing is of more benefit than it looks like.
+                    The paper presents a cleaner algorithmic route and improved complexity bounds, building around FFT,
+                    hashing, and the idea that preprocessing can be used as a serious structural advantage rather than a
+                    minor convenience.
+                </p>
+                <a class="button button--secondary" href="https://arxiv.org/abs/2410.16784" target="_blank"
+                    rel="noopener noreferrer">Open on arXiv</a>
+            </article>
+        </section>
+
+        <section class="content-section reveal">
+            <div class="section-heading">
+                <p class="eyebrow">Projects</p>
+                <h2>Research threads that have defined the last year.</h2>
+            </div>
+
+            <div class="card-grid card-grid--two">
+                <article class="project-card">
+                    <p class="project-card__meta">Bocconi University | May 2024 to July 2024</p>
+                    <h3>Internship with Prof. Adam Polak</h3>
+                    <p>
+                        I worked on improving bounds for a preprocessing-heavy 3SUM variant, reducing the time
+                        complexity from <strong>\( O(N^{11/6}) \)</strong> to
+                        <strong>\( O(N^{1.5} \log N) \)</strong>. The project also led to questions about deterministic
+                        methods and unknown-set configurations in the preprocessing phase.
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <p class="project-card__meta">IIT Delhi | August 2024 to December 2024</p>
+                    <h3>Research with Prof. Rajendra Kumar</h3>
+                    <p>
+                        This project studied how Continuous Learning with Errors can provide stronger hardness
+                        assumptions in clustering, especially around k-means. The work was motivated by the broader
+                        question of how cryptographic hardness can reshape learning theory.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

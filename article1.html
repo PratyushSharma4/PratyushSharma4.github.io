@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on why the casino doubling strategy fails despite sounding like a guaranteed win.">
+    <title>The Flaw in the Casino Game Betting Strategy | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="article">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="writing.html" aria-current="page">Writing</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero reveal">
+
+            <p class="eyebrow">Probability and expectation</p>
+            <h1>The flaw in the casino game betting strategy</h1>
+            <p class="article-intro">
+                The Martingale-style doubling strategy sounds irresistible: if each game is fair and you can double
+                after every loss, eventually a win seems to guarantee a profit of one unit. The catch is that the
+                argument feels finite while the mathematics underneath it is not.
+            </p>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar reveal">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The issue is not that fair games suddenly become unfair. The issue is that an infinite betting
+                        process does not let you use expectation as casually as a finite one.</p>
+                </div>
+            </aside>
+
+            <article class="article-card reveal">
+                <div class="article-block">
+                    <h2>The question</h2>
+                    <p>
+                        Suppose a casino game gives a 50 percent chance of winning and a 50 percent chance of losing on
+                        each round. You start by betting one unit, and every time you lose you double the next bet.
+                        Since the first win recovers all previous losses and adds one unit of profit, it is tempting to
+                        conclude that unlimited capital turns the strategy into a guaranteed gain. If each individual
+                        round has expectation zero, where exactly does the reasoning fail?
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>Where the intuition goes wrong</h2>
+                    <p>
+                        The seductive step is the idea that because every game is fair, the whole strategy should also
+                        be fair while still somehow guaranteeing a positive result. That combination is already a
+                        warning sign. The deeper issue is that the strategy implicitly creates an infinite random sum of
+                        gains and losses, and infinite sums are not automatically governed by the same expectation rules
+                        that work perfectly in finite settings.
+                    </p>
+                    <p>
+                        In particular, linearity of expectation is safe for finitely many random variables, and for
+                        certain infinite settings when convergence behaves well. Here, however, the stake sizes keep
+                        growing without bound, and the relevant infinite series is not absolutely convergent. The rare
+                        cases in which you lose many times in a row become astronomically expensive, and that tail risk
+                        cannot be ignored just because it is unlikely.
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>The real flaw</h2>
+                    <p>
+                        The strategy only appears to convert a fair game into a guaranteed profit because it hides its
+                        cost inside an unbounded bankroll. Once you allow arbitrarily large losses before the eventual
+                        win, the expected-value reasoning is no longer as simple as adding up a neat collection of zero
+                        expectation bets. The process relies on an infinite escalation, and that destroys the clean
+                        conclusion.
+                    </p>
+                    <p>
+                        Put differently, the statement "you eventually win one unit" is true only if you are allowed to
+                        survive an arbitrarily long losing streak. The mathematical price of that assumption is exactly
+                        what breaks the naive expectation argument.
+                    </p>
+                </div>
+
+                <div class="article-block article-block--accent">
+                    <h2>Takeaway</h2>
+                    <p>
+                        The flaw is not hidden in the fairness of any single round. It lies in extending finite
+                        intuition to an infinite betting scheme where convergence fails and the downside can grow
+                        without limit.
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
