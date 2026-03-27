@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the two envelopes paradox and the hidden variable shift that breaks the expected-value argument.">
+    <title>The Flaw in the Two Envelopes Paradox | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+            <p class="eyebrow">Probability and paradox</p>
+            <h1>The flaw in the two envelopes paradox</h1>
+            <p class="article-intro">
+                The usual switching argument sounds almost too clean to resist. You open one envelope, call the amount
+                \( x \), and a short expected-value calculation seems to prove that switching is always better. The
+                paradox disappears the moment you force the symbols to keep the same meaning all the way through.
+            </p>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The symbol \( x \) is treated as if it were fixed, even though the argument makes it stand for
+                        two different envelope values in two different scenarios.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block">
+                    <h2>The question</h2>
+                    <p>
+                        Imagine you are presented with two identical envelopes. One contains some amount of money and
+                        the other contains exactly twice that amount. You choose one at random, open it, and find an
+                        amount we call \( x \). You are then offered the chance to keep what you have or switch to the
+                        unopened envelope.
+                    </p>
+                    <p>
+                        A tempting calculation says switching must be the superior strategy. With probability one half,
+                        the other envelope contains \( 2x \). With probability one half, it contains \( 0.5x \). So the
+                        expected value of switching appears to be
+                    </p>
+                    <p>
+                        \[
+                        E = 0.5(2x) + 0.5(0.5x) = 1.25x
+                        \]
+                    </p>
+                    <p>
+                        If that were valid, switching would always increase your expected winnings. But that cannot be
+                        right. If the reasoning worked, it would also tell you to switch back again immediately.
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>Why the argument feels convincing</h2>
+                    <p>
+                        The expression looks innocent because each case is individually plausible. If your envelope
+                        happens to hold the smaller amount, then the other really does contain double. If your envelope
+                        happens to hold the larger amount, then the other really does contain half. The hidden problem
+                        is that the same variable is being forced to serve both stories at once.
+                    </p>
+                    <p>
+                        In the \( 2x \) term, the argument is imagining that your current envelope contains the smaller
+                        amount. In the \( 0.5x \) term, it is imagining that your current envelope contains the larger
+                        amount. Those are different worlds, and the value represented by \( x \) is not the same in
+                        both.
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>The clean way to write it</h2>
+                    <p>
+                        Let the smaller envelope contain \( A \), so the larger one contains \( 2A \). Now there are
+                        two genuinely distinct possibilities when you pick an envelope.
+                    </p>
+                    <p>
+                        With probability one half, you chose the smaller envelope. Then your current amount is \( A \)
+                        and the other envelope contains \( 2A \).
+                    </p>
+                    <p>
+                        With probability one half, you chose the larger envelope. Then your current amount is \( 2A \)
+                        and the other envelope contains \( A \).
+                    </p>
+                    <p>
+                        The expected value of your current envelope is therefore
+                    </p>
+                    <p>
+                        \[
+                        E_{\text{current}} = 0.5(A) + 0.5(2A) = 1.5A
+                        \]
+                    </p>
+                    <p>
+                        The expected value of the other envelope is
+                    </p>
+                    <p>
+                        \[
+                        E_{\text{other}} = 0.5(2A) + 0.5(A) = 1.5A
+                        \]
+                    </p>
+                    <p>
+                        They are identical. There is no mathematical advantage to switching.
+                    </p>
+                </div>
+
+                <div class="article-block">
+                    <h2>Where the logic fails</h2>
+                    <p>
+                        The flawed formula
+                    </p>
+                    <p>
+                        \[
+                        E = 0.5(2x) + 0.5(0.5x)
+                        \]
+                    </p>
+                    <p>
+                        quietly changes the meaning of \( x \) halfway through. In the first term, \( x \) behaves like
+                        \( A \). In the second term, \( x \) behaves like \( 2A \). Once that shift is exposed, the
+                        paradox loses its force. The algebra was never combining like quantities in the first place.
+                    </p>
+                </div>
+
+                <div class="article-block article-block--accent">
+                    <h2>Takeaway</h2>
+                    <p>
+                        The two envelopes paradox does not show that expectation is unreliable. It shows that expected
+                        value only helps when the random variables are defined consistently. Here, the seductive step is
+                        using one symbol for two different values and then pretending nothing changed.
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

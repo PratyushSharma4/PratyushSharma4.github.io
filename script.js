@@ -1,11 +1,7 @@
 (function () {
-    const config = window.SITE_CONFIG || {};
     const body = document.body;
     const navToggle = document.querySelector(".nav-toggle");
     const siteNav = document.querySelector(".site-nav");
-    const progressBar = document.querySelector(".scroll-progress");
-    const revealItems = document.querySelectorAll(".reveal");
-    const accordions = document.querySelectorAll(".accordion-card");
     const filterGroups = document.querySelectorAll("[data-filter-group]");
     const counterItems = document.querySelectorAll("[data-counter]");
     const spotlightCards = document.querySelectorAll("[data-tilt]");
@@ -129,65 +125,6 @@
         });
     }
 
-    function setupScrollProgress() {
-        if (!progressBar) {
-            return;
-        }
-
-        const updateProgress = function () {
-            const scrollTop = window.scrollY;
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0;
-            progressBar.style.width = progress + "%";
-        };
-
-        updateProgress();
-        window.addEventListener("scroll", updateProgress, { passive: true });
-    }
-
-    function setupRevealObserver() {
-        if (!revealItems.length) {
-            return;
-        }
-
-        if (!("IntersectionObserver" in window)) {
-            revealItems.forEach(function (item) {
-                item.classList.add("is-visible");
-            });
-            return;
-        }
-
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.16
-        });
-
-        revealItems.forEach(function (item) {
-            observer.observe(item);
-        });
-    }
-
-    function setupAccordions() {
-        accordions.forEach(function (card) {
-            const button = card.querySelector(".accordion-toggle");
-            if (!button) {
-                return;
-            }
-
-            button.addEventListener("click", function () {
-                const open = card.classList.contains("is-open");
-                card.classList.toggle("is-open", !open);
-                button.setAttribute("aria-expanded", String(!open));
-            });
-        });
-    }
-
     function setupFilters() {
         filterGroups.forEach(function (group) {
             const buttons = group.querySelectorAll("[data-filter]");
@@ -262,55 +199,6 @@
         });
     }
 
-    function setupVisitAlert() {
-        const webhook = config.visitorAlertWebhook;
-        if (!webhook) {
-            return;
-        }
-
-        const ownerKey = config.ownerModeStorageKey || "ps-owner-mode";
-        const queryKey = config.ownerModeQueryParam || "owner";
-        const params = new URLSearchParams(window.location.search);
-
-        if (params.get(queryKey) === "1") {
-            localStorage.setItem(ownerKey, "true");
-        }
-
-        if (params.get(queryKey) === "0") {
-            localStorage.removeItem(ownerKey);
-        }
-
-        if (localStorage.getItem(ownerKey) === "true") {
-            return;
-        }
-
-        const sessionKey = "ps-visit-alert-sent";
-        if (sessionStorage.getItem(sessionKey) === "true") {
-            return;
-        }
-
-        const payload = {
-            title: document.title,
-            url: window.location.href,
-            path: window.location.pathname,
-            timestamp: new Date().toISOString(),
-            referrer: document.referrer || "direct",
-            userAgent: navigator.userAgent
-        };
-
-        fetch(webhook, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        }).then(function () {
-            sessionStorage.setItem(sessionKey, "true");
-        }).catch(function () {
-            // Intentionally quiet so the page does not show errors to visitors.
-        });
-    }
-
     function setupKaTeX() {
         if (!pageHasMath) {
             return;
@@ -343,12 +231,8 @@
 
     setupTheme();
     setupNavigation();
-    setupScrollProgress();
-    setupRevealObserver();
-    setupAccordions();
     setupFilters();
     setupCounters();
     setupSpotlights();
-    setupVisitAlert();
     setupKaTeX();
 }());
