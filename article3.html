@@ -55,11 +55,6 @@
         <section class="article-hero">
             <p class="eyebrow">Probability and paradox</p>
             <h1>The flaw in the two envelopes paradox</h1>
-            <p class="article-intro">
-                The usual switching argument sounds almost too clean to resist. You open one envelope, call the amount
-                \( x \), and a short expected-value calculation seems to prove that switching is always better. The
-                paradox disappears the moment you force the symbols to keep the same meaning all the way through.
-            </p>
         </section>
 
         <section class="article-layout">
@@ -72,107 +67,64 @@
             </aside>
 
             <article class="article-card">
-                <div class="article-block">
-                    <h2>The question</h2>
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
                     <p>
                         Imagine you are presented with two identical envelopes. One contains some amount of money and
                         the other contains exactly twice that amount. You choose one at random, open it, and find an
-                        amount we call \( x \). You are then offered the chance to keep what you have or switch to the
-                        unopened envelope.
-                    </p>
-                    <p>
-                        A tempting calculation says switching must be the superior strategy. With probability one half,
-                        the other envelope contains \( 2x \). With probability one half, it contains \( 0.5x \). So the
-                        expected value of switching appears to be
-                    </p>
-                    <p>
-                        \[
-                        E = 0.5(2x) + 0.5(0.5x) = 1.25x
-                        \]
+                        amount \( x \). You are then given the option to switch to the other envelope. Since the other
+                        envelope must contain either \( x/2 \) or \( 2x \) with equal probability, the expected value of
+                        switching is \( 0.5(x/2) + 0.5(2x) = 1.25x \), which is strictly greater than \( x \). You
+                        should therefore switch. But before opening the second envelope, you are presented with the same
+                        choice again.
                     </p>
                     <p>
                         If that were valid, switching would always increase your expected winnings. But that cannot be
-                        right. If the reasoning worked, it would also tell you to switch back again immediately.
+                        true, because the envelopes are identical and you could just as easily have picked the other one
+                        first. The game is entirely symmetric. Where is the flaw in the reasoning?
                     </p>
                 </div>
 
-                <div class="article-block">
-                    <h2>Why the argument feels convincing</h2>
+                <div class="article-block article-block--answer">
+                    <h2>The mathematical flaw</h2>
                     <p>
-                        The expression looks innocent because each case is individually plausible. If your envelope
-                        happens to hold the smaller amount, then the other really does contain double. If your envelope
-                        happens to hold the larger amount, then the other really does contain half. The hidden problem
-                        is that the same variable is being forced to serve both stories at once.
+                        Let the two envelopes contain amounts \( A \) and \( 2A \), where \( A \) is drawn from some prior probability distribution \( P(A) \). Let \( X \) be the amount in the envelope you picked, and \( Y \) be the amount in the other envelope.
                     </p>
                     <p>
-                        In the \( 2x \) term, the argument is imagining that your current envelope contains the smaller
-                        amount. In the \( 0.5x \) term, it is imagining that your current envelope contains the larger
-                        amount. Those are different worlds, and the value represented by \( x \) is not the same in
-                        both.
+                        The expected value of switching, conditioned on seeing \( X = x \), is \( E[Y \mid X = x] \). The other envelope contains either \( x/2 \) or \( 2x \). Therefore:
                     </p>
-                </div>
-
-                <div class="article-block">
-                    <h2>The clean way to write it</h2>
-                    <p>
-                        Let the smaller envelope contain \( A \), so the larger one contains \( 2A \). Now there are
-                        two genuinely distinct possibilities when you pick an envelope.
-                    </p>
-                    <p>
-                        With probability one half, you chose the smaller envelope. Then your current amount is \( A \)
-                        and the other envelope contains \( 2A \).
-                    </p>
-                    <p>
-                        With probability one half, you chose the larger envelope. Then your current amount is \( 2A \)
-                        and the other envelope contains \( A \).
-                    </p>
-                    <p>
-                        The expected value of your current envelope is therefore
-                    </p>
-                    <p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
                         \[
-                        E_{\text{current}} = 0.5(A) + 0.5(2A) = 1.5A
+                        E[Y \mid X=x] = 2x \cdot P(Y=2x \mid X=x) + \frac{x}{2} \cdot P\left(Y=\frac{x}{2} \mid X=x\right)
                         \]
+                    </div>
+                    <p>
+                        To understand why the paradox fails, we look at Bayes' theorem. Knowing that your envelope contains \( x \), the true smaller amount \( A \) must be either \( x \) (you picked the smaller envelope) or \( x/2 \) (you picked the larger envelope). 
                     </p>
                     <p>
-                        The expected value of the other envelope is
+                        Let's calculate the exact probability that you are holding the smaller envelope, \( P(A=x \mid X=x) \). Since you pick one of the two envelopes at random, the conditional probability of pulling \( x \) is \( 0.5 \), regardless of the amounts inside. Applying Bayes' theorem:
                     </p>
-                    <p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
                         \[
-                        E_{\text{other}} = 0.5(2A) + 0.5(A) = 1.5A
+                        \begin{aligned}
+                        P(A=x \mid X=x) &= \frac{P(X=x \mid A=x) \cdot P(A=x)}{P(X=x \mid A=x) \cdot P(A=x) + P(X=x \mid A=x/2) \cdot P(A=x/2)} \\[10pt]
+                        &= \frac{0.5 \cdot P(A=x)}{0.5 \cdot P(A=x) + 0.5 \cdot P(A=x/2)} \\[10pt]
+                        &= \frac{P(A=x)}{P(A=x) + P(A=x/2)}
+                        \end{aligned}
                         \]
+                    </div>
+                    <p>
+                        The naive paradox unconditionally assumes that the other envelope is equally likely to contain \( 2x \) or \( x/2 \). In our formula, that assumption literally requires setting the probability \( P(A=x \mid X=x) \) to exactly \( 0.5 \). If we substitute \( 0.5 \) into the left side of our equation above and simplify, it forcefully demands the mathematical requirement that \( P(A = x) = P(A = x/2) \) for absolutely any real number \( x \) you might open.
                     </p>
                     <p>
-                        They are identical. There is no mathematical advantage to switching.
-                    </p>
-                </div>
-
-                <div class="article-block">
-                    <h2>Where the logic fails</h2>
-                    <p>
-                        The flawed formula
-                    </p>
-                    <p>
-                        \[
-                        E = 0.5(2x) + 0.5(0.5x)
-                        \]
-                    </p>
-                    <p>
-                        quietly changes the meaning of \( x \) halfway through. In the first term, \( x \) behaves like
-                        \( A \). In the second term, \( x \) behaves like \( 2A \). Once that shift is exposed, the
-                        paradox loses its force. The algebra was never combining like quantities in the first place.
-                    </p>
-                </div>
-
-                <div class="article-block article-block--accent">
-                    <h2>Takeaway</h2>
-                    <p>
-                        The two envelopes paradox does not show that expectation is unreliable. It shows that expected
-                        value only helps when the random variables are defined consistently. Here, the seductive step is
-                        using one symbol for two different values and then pretending nothing changed.
+                        Because money in the real world has financial limits, you simply cannot have a probability distribution where \( x \) and \( x/2 \) are always equally likely to be put in the envelopes everywhere across the spectrum. If you open an astronomically massive sum, it is highly probable you hold the larger envelope, which violently shifts the probabilities away from \( 0.5 \).
                     </p>
                 </div>
             </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="article2.html">&larr; Previous: When will the prisoner die?</a>
+            </nav>
         </section>
     </main>
 

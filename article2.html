@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body data-page="article">
+<body data-page="article" data-has-math="true">
     <div class="ambient-background" aria-hidden="true">
         <span class="ambient-orb ambient-orb--one"></span>
         <span class="ambient-orb ambient-orb--two"></span>
@@ -56,11 +56,6 @@
 
             <p class="eyebrow">Logic and paradox</p>
             <h1>When will the prisoner die?</h1>
-            <p class="article-intro">
-                The surprise hanging paradox is memorable because the prisoner's reasoning looks methodical, even
-                airtight, right up to the moment it collapses. The interesting part is not merely that he is wrong,
-                but why backward elimination feels so persuasive in the first place.
-            </p>
         </section>
 
         <section class="article-layout">
@@ -68,14 +63,13 @@
                 <div class="note-panel">
                     <p class="note-panel__label">Core insight</p>
                     <p>The prisoner's reasoning tries to use the judge's prediction to discredit the very possibility
-                        that the prediction could come true. That self-undermining step is where the argument loses its
-                        footing.</p>
+                        that the prediction could come true. Because he convinces himself it is impossible, he loses his ability to predict it, which paradoxically allows the surprise to happen.</p>
                 </div>
             </aside>
 
             <article class="article-card">
-                <div class="article-block">
-                    <h2>The question</h2>
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
                     <p>
                         A judge tells a condemned prisoner that he will be executed at noon on one weekday of the
                         following week, and that the execution will be a surprise. The prisoner reasons that it cannot
@@ -86,46 +80,29 @@
                     </p>
                 </div>
 
-                <div class="article-block">
-                    <h2>Why the backward argument feels convincing</h2>
+                <div class="article-block article-block--answer">
+                    <h2>The Logical Fallacy</h2>
                     <p>
-                        Each step seems to use a reasonable idea: if only one day remains, then the prisoner should be
-                        able to predict the execution. That appears to violate the judge's promise of surprise, so the
-                        last day is ruled out. From there, the prisoner tries to repeat the same reasoning one day
-                        earlier, and the chain continues backward.
+                        The prisoner treats the word "surprise" like a fixed fact, such as a number or a date. In reality, a surprise simply means a lack of knowledge. The prisoner reasons: "If I know \( X \), then \( X \) is not a surprise." By following his logic backward, he reaches the state: "I know that no day is possible." Because he convinces himself that an execution is impossible on any day, he no longer knows what will happen. And because he loses that knowledge, the execution can be a surprise again.
                     </p>
                     <p>
-                        The trouble is that the argument assumes the prisoner can continue treating the judge's
-                        prediction as reliable even after his own reasoning would imply that the prediction is
-                        impossible. In other words, he uses the prediction as a premise inside an argument whose
-                        conclusion is that the prediction cannot be fulfilled.
+                        The prisoner's proof requires him to fully trust the judge at every step. But his final result, that he won't be hanged at all, directly contradicts the judge. A logical argument falls apart if its conclusion proves that its starting assumption must be false. The moment he convinces himself he is perfectly safe, he loses his ability to predict the execution, which allows the judge's "surprise" to come true.
                     </p>
-                </div>
 
-                <div class="article-block">
-                    <h2>The flaw</h2>
+                    <h2>The Liar's Paradox connection</h2>
                     <p>
-                        The very first elimination already depends on a delicate notion of what counts as "knowing" the
-                        date in advance. If the prisoner were to deduce on Thursday night that the execution must happen
-                        on Friday, then he would simultaneously be living in a world where his earlier blanket
-                        conclusion, namely that no execution can occur, has already failed. The reasoning is not stable
-                        under its own consequences.
+                        This puzzle is a variation of the Liar's Paradox ("This sentence is false"). To eliminate Friday, the prisoner assumes the judge is telling the complete truth. But if he continues eliminating every day using this method, he concludes the judge is lying, because he thinks no execution can happen. 
                     </p>
                     <p>
-                        Once the chain starts undermining the reliability of the prediction it is using, the later steps
-                        lose their force. The judge can still speak truthfully because the prisoner's attempted proof of
-                        impossibility does not translate into genuine foreknowledge of the actual day.
-                    </p>
-                </div>
-
-                <div class="article-block article-block--accent">
-                    <h2>Takeaway</h2>
-                    <p>
-                        The prisoner's logic fails because it treats surprise, prediction, and self-reference as if they
-                        were ordinary facts that can be iterated backward without instability. They cannot.
+                        However, if the judge is lying, the prisoner was never allowed to use the judge's original statement to eliminate Friday in the first place! You cannot use a rule to prove that the rule itself is a lie.
                     </p>
                 </div>
             </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="article1.html">&larr; Previous: The flaw in the casino game</a>
+                <a class="nav-next" href="article3.html">Next: The flaw in the two envelopes paradox &rarr;</a>
+            </nav>
         </section>
     </main>
 

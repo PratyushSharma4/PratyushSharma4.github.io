@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="A short note on why the casino doubling strategy fails despite sounding like a guaranteed win.">
-    <title>The Flaw in the Casino Game Betting Strategy | Pratyush Sharma</title>
+    <title>The Flaw in the Casino Game | Pratyush Sharma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body data-page="article">
+<body data-page="article" data-has-math="true">
     <div class="ambient-background" aria-hidden="true">
         <span class="ambient-orb ambient-orb--one"></span>
         <span class="ambient-orb ambient-orb--two"></span>
@@ -55,12 +55,7 @@
         <section class="article-hero">
 
             <p class="eyebrow">Probability and expectation</p>
-            <h1>The flaw in the casino game betting strategy</h1>
-            <p class="article-intro">
-                The Martingale-style doubling strategy sounds irresistible: if each game is fair and you can double
-                after every loss, eventually a win seems to guarantee a profit of one unit. The catch is that the
-                argument feels finite while the mathematics underneath it is not.
-            </p>
+            <h1>The flaw in the casino game</h1>
         </section>
 
         <section class="article-layout">
@@ -73,60 +68,39 @@
             </aside>
 
             <article class="article-card">
-                <div class="article-block">
-                    <h2>The question</h2>
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
                     <p>
-                        Suppose a casino game gives a 50 percent chance of winning and a 50 percent chance of losing on
-                        each round. You start by betting one unit, and every time you lose you double the next bet.
-                        Since the first win recovers all previous losses and adds one unit of profit, it is tempting to
+                        Suppose a casino game gives a 50% chance of winning and a 50% chance of losing on
+                        each round. You start by betting $1, and every time you lose you double the next bet.
+                        Since the first win recovers all previous losses and adds $1 of profit, it is tempting to
                         conclude that unlimited capital turns the strategy into a guaranteed gain. If each individual
                         round has expectation zero, where exactly does the reasoning fail?
                     </p>
                 </div>
 
-                <div class="article-block">
-                    <h2>Where the intuition goes wrong</h2>
+                <div class="article-block article-block--answer">
+                    <h2>The mathematical flaw</h2>
                     <p>
-                        The seductive step is the idea that because every game is fair, the whole strategy should also
-                        be fair while still somehow guaranteeing a positive result. That combination is already a
-                        warning sign. The deeper issue is that the strategy implicitly creates an infinite random sum of
-                        gains and losses, and infinite sums are not automatically governed by the same expectation rules
-                        that work perfectly in finite settings.
+                        The expected value of any finite number of rounds in a fair game is exactly 0. The martingale strategy claims an expected profit of $1 using a stopping time \( \tau \) (the moment you finally win). To calculate the expected value of a stopped martingale using the formula \( E[X_\tau] = E[X_0] = 0 \), Doob's Optional Stopping Theorem requires at least one of these three conditions to hold:
+                    </p>
+                    <ul>
+                        <li style="margin-bottom: 8px;">The stopping time \( \tau \) must be bounded by a fixed maximum number of steps.</li>
+                        <li style="margin-bottom: 8px;">The expected stopping time \( E[\tau] \) must be finite, and the absolute differences between consecutive steps must be bounded by a constant.</li>
+                        <li>The sequence of values must be bounded absolutely (the process cannot drop below or rise above fixed limits).</li>
+                    </ul>
+                    <p>
+                        The doubling strategy violates all three conditions. First, you could lose indefinitely, meaning there is no maximum number of bets. Second, a symmetric one-dimensional random walk takes infinitely long on average to reach a target state, meaning \( E[\tau] = \infty \), and your bet sizes grow exponentially without any upper bound. Third, without a table limit or a finite bankroll, your potential debt plunges to negative infinity before recovering.
                     </p>
                     <p>
-                        In particular, linearity of expectation is safe for finitely many random variables, and for
-                        certain infinite settings when convergence behaves well. Here, however, the stake sizes keep
-                        growing without bound, and the relevant infinite series is not absolutely convergent. The rare
-                        cases in which you lose many times in a row become astronomically expensive, and that tail risk
-                        cannot be ignored just because it is unlikely.
-                    </p>
-                </div>
-
-                <div class="article-block">
-                    <h2>The real flaw</h2>
-                    <p>
-                        The strategy only appears to convert a fair game into a guaranteed profit because it hides its
-                        cost inside an unbounded bankroll. Once you allow arbitrarily large losses before the eventual
-                        win, the expected-value reasoning is no longer as simple as adding up a neat collection of zero
-                        expectation bets. The process relies on an infinite escalation, and that destroys the clean
-                        conclusion.
-                    </p>
-                    <p>
-                        Put differently, the statement "you eventually win one unit" is true only if you are allowed to
-                        survive an arbitrarily long losing streak. The mathematical price of that assumption is exactly
-                        what breaks the naive expectation argument.
-                    </p>
-                </div>
-
-                <div class="article-block article-block--accent">
-                    <h2>Takeaway</h2>
-                    <p>
-                        The flaw is not hidden in the fairness of any single round. It lies in extending finite
-                        intuition to an infinite betting scheme where convergence fails and the downside can grow
-                        without limit.
+                        Because it fails the Optional Stopping Theorem, you cannot simply say that the strategy's expected outcome matches a finite game. The naive intuition fails because it ignores the indeterminate \( \infty - \infty \) math created by the extreme tail risk of losing repeatedly.
                     </p>
                 </div>
             </article>
+
+            <nav class="article-nav">
+                <a class="nav-next" href="article2.html">Next: When will the prisoner die? &rarr;</a>
+            </nav>
         </section>
     </main>
 
