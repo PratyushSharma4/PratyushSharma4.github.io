@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the Sleeping Beauty problem and why 1/2 and 1/3 both look correct depending on what you count.">
+    <title>Halfer or Thirder? | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/sleeping-beauty.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/sleeping-beauty.html">
+    <meta property="og:title" content="Halfer or Thirder? | Pratyush Sharma">
+    <meta property="og:description" content="A short note on the Sleeping Beauty problem and why 1/2 and 1/3 both look correct depending on what you count.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Halfer or Thirder? | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on the Sleeping Beauty problem and why 1/2 and 1/3 both look correct depending on what you count.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+            <p class="eyebrow">Probability and self-location</p>
+            <h1>Halfer or thirder?</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The two answers are not rival calculations of the same quantity. They answer two different
+                        questions. One asks how often the coin is heads. The other asks how often a waking observer finds
+                        herself in a heads world.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        On Sunday, Sleeping Beauty is put to sleep and a fair coin is flipped. If it lands
+                        <strong>heads</strong>, she is woken once, on Monday. If it lands <strong>tails</strong>, she is
+                        woken twice, on Monday and again on Tuesday. After each waking she is given a drug that erases the
+                        memory of that waking, so every awakening feels identical and she can never tell which day it is
+                        or whether it has happened before.
+                    </p>
+                    <p>
+                        Each time she wakes, she is asked a single question. <em>What is your credence right now that the
+                        coin landed heads?</em> The coin is fair, so the answer is obviously \( 1/2 \). But she is twice
+                        as likely to be woken in a tails world, so the answer is obviously \( 1/3 \). Both arguments feel
+                        airtight. Which is right?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>Why both numbers appear</h2>
+                    <p>
+                        Unlike a broken paradox, there is no single algebraic slip to point to here. The disagreement is
+                        about <em>what event we are assigning probability to</em>, and the question as stated does not
+                        fully pin that down.
+                    </p>
+                    <p>
+                        <strong>The halfer view (\( 1/2 \)).</strong> The coin is fair, and Beauty knew in advance that
+                        she would be woken no matter how it landed. Waking up is therefore guaranteed under both
+                        outcomes, so it carries no new information. Her credence should equal her Sunday prior.
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        P(\text{Heads}) = \tfrac{1}{2}.
+                        \]
+                    </div>
+                    <p>
+                        <strong>The thirder view (\( 1/3 \)).</strong> Count the awakenings across many repetitions of
+                        the experiment. Heads produces one awakening. Tails produces two. From the inside, all three are
+                        indistinguishable, so each is equally likely to be the one Beauty is now experiencing.
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        P(\text{Heads} \mid \text{awake}) =
+                        \frac{1}{\underbrace{1}_{\text{H, Mon}} + \underbrace{2}_{\text{T, Mon, Tue}}}
+                        = \frac{1}{3}.
+                        \]
+                    </div>
+                    <p>
+                        Both are correct answers to different questions. The halfer weights <em>coin flips</em>. Over
+                        many runs, half of them land heads. The thirder weights <em>observer-moments</em>. Over many
+                        runs, only one waking in three occurs in a heads world. Tails simply manufactures more copies of
+                        the experience, and the puzzle never says whether Beauty should reason about the coin or about the
+                        waking she is inside.
+                    </p>
+                    <p>
+                        The hidden assumption, then, is the belief that "the probability the coin is heads" has one
+                        meaning independent of the observer. When your own number of observations depends on the outcome,
+                        it does not.
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="benfords-law.html">&larr; Previous: Why real-world numbers start with 1</a>
+                <a class="nav-next" href="boy-or-girl.html">Next: Boy or girl? &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

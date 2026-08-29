@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the two envelopes paradox and the hidden variable shift that breaks the expected-value argument.">
+    <title>The Flaw in the Two Envelopes Paradox | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/two-envelopes.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/two-envelopes.html">
+    <meta property="og:title" content="The Flaw in the Two Envelopes Paradox | Pratyush Sharma">
+    <meta property="og:description" content="A short note on the two envelopes paradox and the hidden variable shift that breaks the expected-value argument.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Flaw in the Two Envelopes Paradox | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on the two envelopes paradox and the hidden variable shift that breaks the expected-value argument.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+            <p class="eyebrow">Probability and paradox</p>
+            <h1>The flaw in the two envelopes paradox</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The symbol \( x \) is treated as if it were fixed, even though the argument makes it stand for
+                        two different envelope values in two different scenarios.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        Imagine you are presented with two identical envelopes. One contains some amount of money and
+                        the other contains exactly twice that amount. You choose one at random, open it, and find an
+                        amount \( x \). You are then given the option to switch to the other envelope. Since the other
+                        envelope must contain either \( x/2 \) or \( 2x \) with equal probability, the expected value of
+                        switching is \( 0.5(x/2) + 0.5(2x) = 1.25x \), which is strictly greater than \( x \). You
+                        should therefore switch. But before opening the second envelope, you are presented with the same
+                        choice again.
+                    </p>
+                    <p>
+                        If that were valid, switching would always increase your expected winnings. But that cannot be
+                        true, because the envelopes are identical and you could just as easily have picked the other one
+                        first. The game is entirely symmetric. Where is the flaw in the reasoning?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>The mathematical flaw</h2>
+                    <p>
+                        Let the two envelopes contain amounts \( A \) and \( 2A \), where \( A \) is drawn from some prior probability distribution \( P(A) \). Let \( X \) be the amount in the envelope you picked, and \( Y \) be the amount in the other envelope.
+                    </p>
+                    <p>
+                        The expected value of switching, conditioned on seeing \( X = x \), is \( E[Y \mid X = x] \). The other envelope contains either \( x/2 \) or \( 2x \). Therefore:
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        E[Y \mid X=x] = 2x \cdot P(Y=2x \mid X=x) + \frac{x}{2} \cdot P\left(Y=\frac{x}{2} \mid X=x\right)
+                        \]
+                    </div>
+                    <p>
+                        To understand why the paradox fails, we look at Bayes' theorem. Knowing that your envelope contains \( x \), the true smaller amount \( A \) must be either \( x \) (you picked the smaller envelope) or \( x/2 \) (you picked the larger envelope). 
+                    </p>
+                    <p>
+                        Let's calculate the exact probability that you are holding the smaller envelope, \( P(A=x \mid X=x) \). Since you pick one of the two envelopes at random, the conditional probability of pulling \( x \) is \( 0.5 \), regardless of the amounts inside. Applying Bayes' theorem:
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        \begin{aligned}
+                        P(A=x \mid X=x) &= \frac{P(X=x \mid A=x) \cdot P(A=x)}{P(X=x \mid A=x) \cdot P(A=x) + P(X=x \mid A=x/2) \cdot P(A=x/2)} \\[10pt]
+                        &= \frac{0.5 \cdot P(A=x)}{0.5 \cdot P(A=x) + 0.5 \cdot P(A=x/2)} \\[10pt]
+                        &= \frac{P(A=x)}{P(A=x) + P(A=x/2)}
+                        \end{aligned}
+                        \]
+                    </div>
+                    <p>
+                        The naive paradox unconditionally assumes that the other envelope is equally likely to contain \( 2x \) or \( x/2 \). In our formula, that assumption literally requires setting the probability \( P(A=x \mid X=x) \) to exactly \( 0.5 \). If we substitute \( 0.5 \) into the left side of our equation above and simplify, it forcefully demands the mathematical requirement that \( P(A = x) = P(A = x/2) \) for absolutely any real number \( x \) you might open.
+                    </p>
+                    <p>
+                        Because money in the real world has financial limits, you simply cannot have a probability distribution where \( x \) and \( x/2 \) are always equally likely to be put in the envelopes everywhere across the spectrum. If you open an astronomically massive sum, it is highly probable you hold the larger envelope, which violently shifts the probabilities away from \( 0.5 \).
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="prisoner.html">&larr; Previous: When will the prisoner die?</a>
+                <a class="nav-next" href="benfords-law.html">Next: Why real-world numbers start with 1 &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

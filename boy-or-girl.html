@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the boy-or-girl paradox and why the answer depends entirely on how the information was obtained.">
+    <title>Boy or Girl? | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/boy-or-girl.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/boy-or-girl.html">
+    <meta property="og:title" content="Boy or Girl? | Pratyush Sharma">
+    <meta property="og:description" content="A short note on the boy-or-girl paradox and why the answer depends entirely on how the information was obtained.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Boy or Girl? | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on the boy-or-girl paradox and why the answer depends entirely on how the information was obtained.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+            <p class="eyebrow">Probability and information</p>
+            <h1>Boy or girl?</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The number you get is not a property of the family. It is a property of the process that handed
+                        you the fact, and two innocent-sounding phrasings encode two different processes.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        A family has two children. Assume each child is independently a boy or a girl with probability
+                        \( 1/2 \), so the four equally likely families are \( BB \), \( BG \), \( GB \), \( GG \), where
+                        the order records the elder child first.
+                    </p>
+                    <p>
+                        You are told that <em>at least one of the children is a boy</em>. What is the probability that
+                        both children are boys? The instinct is to say \( 1/2 \), since the other child is equally likely
+                        to be a boy or a girl. Yet the standard answer is \( 1/3 \). And if instead you are told <em>the
+                        elder child is a boy</em>, the answer really is \( 1/2 \). How can one extra word change the
+                        probability?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>Why the phrasing decides it</h2>
+                    <p>
+                        Start from the four equally likely families, each with prior probability \( 1/4 \).
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        \{\, BB,\ BG,\ GB,\ GG \,\}.
+                        \]
+                    </div>
+                    <p>
+                        <strong>"At least one is a boy."</strong> This statement is true for every family except
+                        \( GG \). It leaves three survivors, all still equally likely.
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        \{\, BB,\ BG,\ GB \,\}, \qquad P(BB \mid \text{at least one boy}) = \frac{1}{3}.
+                        \]
+                    </div>
+                    <p>
+                        <strong>"The elder child is a boy."</strong> This is a statement about a specific, labelled
+                        slot. It eliminates \( GB \) and \( GG \), leaving only two survivors.
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        \{\, BB,\ BG \,\}, \qquad P(BB \mid \text{elder is a boy}) = \frac{1}{2}.
+                        \]
+                    </div>
+                    <p>
+                        The extra word does not add a child. It adds an <em>index</em>. "At least one" ranges over an
+                        unlabelled pair and only rules out the all-girl case, so the two mixed families \( BG \) and
+                        \( GB \) both survive and outnumber \( BB \) two to one. "The elder" pins down a position, and
+                        conditioning on a labelled slot makes the other child a genuinely independent \( 1/2 \) coin.
+                    </p>
+                    <p>
+                        Two tempting shortcuts lead people astray. The first collapses the two mixed families into a
+                        single "one of each" outcome and treats \( BB \), one of each, and \( GG \) as three equally
+                        likely cases. That is wrong. The mixed outcome carries two orderings, \( BG \) and \( GB \), so it
+                        is twice as likely as \( BB \), and the three cases are not equal. The second shortcut insists the
+                        answer must be \( 1/2 \) because the sex of one child is independent of the other. That
+                        independence is genuine before you are told anything. But "at least one is a boy" is a fact about
+                        the pair, and conditioning on it removes \( GG \) while sparing both mixed families, so the
+                        independence does not survive the filtering.
+                    </p>
+                    <p>
+                        The hidden assumption in the naive \( 1/2 \) is that "you were told about a boy" is the same as
+                        "you inspected a fixed child and it was a boy." It is not. The answer is not encoded in the family
+                        at all. It is encoded in the <em>rule</em> by which the information reached you. This is why the
+                        puzzle is genuinely ambiguous when stated loosely. The phrase "one is a boy" does not say whether
+                        you asked <em>does at least one boy exist?</em> or <em>is this particular child a boy?</em>, and
+                        those two procedures return different numbers.
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="sleeping-beauty.html">&larr; Previous: Halfer or thirder?</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

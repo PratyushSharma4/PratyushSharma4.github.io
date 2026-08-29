@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on the surprise hanging paradox and the flaw in the prisoner's reasoning.">
+    <title>When Will the Prisoner Die? | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/prisoner.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/prisoner.html">
+    <meta property="og:title" content="When Will the Prisoner Die? | Pratyush Sharma">
+    <meta property="og:description" content="A short note on the surprise hanging paradox and the flaw in the prisoner's reasoning.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="When Will the Prisoner Die? | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on the surprise hanging paradox and the flaw in the prisoner's reasoning.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+
+            <p class="eyebrow">Logic and paradox</p>
+            <h1>When will the prisoner die?</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The prisoner's reasoning tries to use the judge's prediction to discredit the very possibility
+                        that the prediction could come true. Because he convinces himself it is impossible, he loses his ability to predict it, which paradoxically allows the surprise to happen.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        A judge tells a condemned prisoner that he will be executed at noon on one weekday of the
+                        following week, and that the execution will be a surprise. The prisoner reasons that it cannot
+                        happen on Friday, because if he survives until Thursday night then Friday would be forced and
+                        therefore unsurprising. Eliminating Friday, he then eliminates Thursday, then Wednesday, and so
+                        on, concluding that the execution cannot happen at all. Yet when the executioner arrives on
+                        Wednesday, he is genuinely surprised. Where did the logic break?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>The Logical Fallacy</h2>
+                    <p>
+                        The prisoner treats the word "surprise" like a fixed fact, such as a number or a date. In reality, a surprise simply means a lack of knowledge. The prisoner reasons: "If I know \( X \), then \( X \) is not a surprise." By following his logic backward, he reaches the state: "I know that no day is possible." Because he convinces himself that an execution is impossible on any day, he no longer knows what will happen. And because he loses that knowledge, the execution can be a surprise again.
+                    </p>
+                    <p>
+                        The prisoner's proof requires him to fully trust the judge at every step. But his final result, that he won't be hanged at all, directly contradicts the judge. A logical argument falls apart if its conclusion proves that its starting assumption must be false. The moment he convinces himself he is perfectly safe, he loses his ability to predict the execution, which allows the judge's "surprise" to come true.
+                    </p>
+
+                    <h2>The Liar's Paradox connection</h2>
+                    <p>
+                        This puzzle is a variation of the Liar's Paradox ("This sentence is false"). To eliminate Friday, the prisoner assumes the judge is telling the complete truth. But if he continues eliminating every day using this method, he concludes the judge is lying, because he thinks no execution can happen. 
+                    </p>
+                    <p>
+                        However, if the judge is lying, the prisoner was never allowed to use the judge's original statement to eliminate Friday in the first place! You cannot use a rule to prove that the rule itself is a lie.
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="casino-game.html">&larr; Previous: The flaw in the casino game</a>
+                <a class="nav-next" href="two-envelopes.html">Next: The flaw in the two envelopes paradox &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

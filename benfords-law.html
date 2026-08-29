@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on Benford's law and why the leading digits of real-world data are logarithmic rather than uniform.">
+    <title>Why Real Numbers Start With 1 | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/benfords-law.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/benfords-law.html">
+    <meta property="og:title" content="Why Real Numbers Start With 1 | Pratyush Sharma">
+    <meta property="og:description" content="A short note on Benford's law and why the leading digits of real-world data are logarithmic rather than uniform.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Real Numbers Start With 1 | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on Benford's law and why the leading digits of real-world data are logarithmic rather than uniform.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+            <p class="eyebrow">Number theory and data</p>
+            <h1>Why real-world numbers start with 1</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>If a rule about leading digits is to survive a change of units, it cannot treat the digits
+                        uniformly. It must be logarithmic, and the log scale makes 1 the widest bin.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        Collect the leading digit of a large pile of real-world numbers. Naively, each of the digits
+                        \( 1 \) through \( 9 \) should show up as the first digit about \( 1/9 \approx 11\% \) of the
+                        time. There is no obvious reason to prefer one over another.
+                    </p>
+                    <p>
+                        Instead, the digit \( 1 \) appears first about \( 30\% \) of the time, and \( 9 \) barely
+                        \( 4.6\% \). This lopsided pattern is called Benford's law. It is so reliable that it is used to
+                        catch fabricated tax returns and rigged elections. Why would nature prefer numbers that begin
+                        with a \( 1 \)?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>The explanation</h2>
+                    <p>
+                        The precise statement is that the probability of a leading digit \( d \) is
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        P(d) = \log_{10}\!\left(1 + \frac{1}{d}\right), \qquad d \in \{1, 2, \ldots, 9\}.
+                        \]
+                    </div>
+                    <p>
+                        The key is not the numbers themselves but the requirement of <em>scale invariance</em>. Switching
+                        the unit of measurement rescales every value by the same constant, yet it still describes the very
+                        same world. If there is any universal law governing leading digits, its predictions must not
+                        change when every value is multiplied by a constant. That single demand is enough to force the
+                        answer.
+                    </p>
+                    <p>
+                        Consider where a number falls on a logarithmic axis. A number has leading digit \( 1 \) exactly
+                        when its fractional part on the \( \log_{10} \) scale lands between \( \log_{10} 1 = 0 \) and
+                        \( \log_{10} 2 \approx 0.301 \). It has leading digit \( 9 \) only when that fractional part lands
+                        between \( \log_{10} 9 \approx 0.954 \) and \( \log_{10} 10 = 1 \), a sliver of width
+                        \( \approx 0.046 \).
+                    </p>
+                    <div class="math-block" style="overflow-x: auto; margin: 2rem 0; text-align: center;">
+                        \[
+                        P(d) = \log_{10}(d+1) - \log_{10}(d) = \log_{10}\!\left(\frac{d+1}{d}\right).
+                        \]
+                    </div>
+                    <p>
+                        Multiplying all the data by a constant simply <em>shifts</em> the fractional parts around the log
+                        scale by a fixed amount. A distribution that is unchanged by every possible shift on a circle of
+                        circumference \( 1 \) can only be the uniform distribution. So the fractional parts of the
+                        logarithms spread out evenly, and the probability of each leading digit is just the
+                        <em>width</em> of its bin on the log axis, which is exactly the formula above.
+                    </p>
+                    <p>
+                        The intuition that all nine digits are equally likely quietly assumes the data lives on a linear
+                        scale, where the gap from \( 1 \) to \( 2 \) equals the gap from \( 8 \) to \( 9 \). Data that
+                        spans many orders of magnitude does not live there. It lives on the log scale, where \( 1 \) owns
+                        the widest doorway and \( 9 \) the narrowest.
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-prev" href="two-envelopes.html">&larr; Previous: The flaw in the two envelopes paradox</a>
+                <a class="nav-next" href="sleeping-beauty.html">Next: Halfer or thirder? &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

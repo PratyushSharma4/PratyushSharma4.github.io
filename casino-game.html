@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A short note on why the casino doubling strategy fails despite sounding like a guaranteed win.">
+    <title>The Flaw in the Casino Game | Pratyush Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Fira+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://pratyushsharma4.github.io/casino-game.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Pratyush Sharma">
+    <meta property="og:url" content="https://pratyushsharma4.github.io/casino-game.html">
+    <meta property="og:title" content="The Flaw in the Casino Game | Pratyush Sharma">
+    <meta property="og:description" content="A short note on why the casino doubling strategy fails despite sounding like a guaranteed win.">
+    <meta property="og:image" content="https://pratyushsharma4.github.io/1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1600">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Flaw in the Casino Game | Pratyush Sharma">
+    <meta name="twitter:description" content="A short note on why the casino doubling strategy fails despite sounding like a guaranteed win.">
+    <meta name="twitter:image" content="https://pratyushsharma4.github.io/1.jpg">
+</head>
+
+<body data-page="article" data-has-math="true">
+    <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand-mark" href="index.html" aria-label="Pratyush Sharma home">
+            <span class="brand-mark__monogram">PS</span>
+            <span class="brand-mark__label">Pratyush Sharma</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="research.html">Research</a>
+            <a href="blog.html" aria-current="page">Writing</a>
+            <a href="games.html">Games</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-pill" href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode" data-theme-toggle>
+                <span class="theme-toggle__sun" aria-hidden="true"></span>
+                <span class="theme-toggle__moon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <section class="article-hero">
+
+            <p class="eyebrow">Probability and expectation</p>
+            <h1>The flaw in the casino game</h1>
+        </section>
+
+        <section class="article-layout">
+            <aside class="article-sidebar">
+                <div class="note-panel">
+                    <p class="note-panel__label">Core insight</p>
+                    <p>The issue is not that fair games suddenly become unfair. The issue is that an infinite betting
+                        process does not let you use expectation as casually as a finite one.</p>
+                </div>
+            </aside>
+
+            <article class="article-card">
+                <div class="article-block article-block--question">
+                    <h2>Question</h2>
+                    <p>
+                        Suppose a casino game gives a 50% chance of winning and a 50% chance of losing on
+                        each round. You start by betting $1, and every time you lose you double the next bet.
+                        Since the first win recovers all previous losses and adds $1 of profit, it is tempting to
+                        conclude that unlimited capital turns the strategy into a guaranteed gain. If each individual
+                        round has expectation zero, where exactly does the reasoning fail?
+                    </p>
+                </div>
+
+                <div class="article-block article-block--answer">
+                    <h2>The mathematical flaw</h2>
+                    <p>
+                        The expected value of any finite number of rounds in a fair game is exactly 0. The martingale strategy claims an expected profit of $1 using a stopping time \( \tau \) (the moment you finally win). To calculate the expected value of a stopped martingale using the formula \( E[X_\tau] = E[X_0] = 0 \), Doob's Optional Stopping Theorem requires at least one of these three conditions to hold:
+                    </p>
+                    <ul>
+                        <li style="margin-bottom: 8px;">The stopping time \( \tau \) must be bounded by a fixed maximum number of steps.</li>
+                        <li style="margin-bottom: 8px;">The expected stopping time \( E[\tau] \) must be finite, and the absolute differences between consecutive steps must be bounded by a constant.</li>
+                        <li>The sequence of values must be bounded absolutely (the process cannot drop below or rise above fixed limits).</li>
+                    </ul>
+                    <p>
+                        The doubling strategy violates all three conditions. First, you could lose indefinitely, meaning there is no maximum number of bets. Second, a symmetric one-dimensional random walk takes infinitely long on average to reach a target state, meaning \( E[\tau] = \infty \), and your bet sizes grow exponentially without any upper bound. Third, without a table limit or a finite bankroll, your potential debt plunges to negative infinity before recovering.
+                    </p>
+                    <p>
+                        Because it fails the Optional Stopping Theorem, you cannot simply say that the strategy's expected outcome matches a finite game. The naive intuition fails because it ignores the indeterminate \( \infty - \infty \) math created by the extreme tail risk of losing repeatedly.
+                    </p>
+                </div>
+            </article>
+
+            <nav class="article-nav">
+                <a class="nav-next" href="prisoner.html">Next: When will the prisoner die? &rarr;</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
